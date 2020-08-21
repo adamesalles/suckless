@@ -67,7 +67,7 @@ static const char *nmtuicmd[] = {"termite", "-e", "nmtui", NULL};
 static const char *pavucontrolcmd[] = {"pavucontrol", NULL};
 static const char *pcmanfmcmd[] = {"pcmanfm", NULL};
 static const char *ncmpcppcmd[] = {"termite", "-e", "ncmpcpp", NULL};
-static const char *printscreencmd[] = {"scrot" "~/screenshots/%Y-%m-%d-%T-screenshot.png", NULL};
+// static const char *printscreencmd[] = {"scrot" "~/screenshots/%Y-%m-%d-%T-screenshot.png", NULL};
 static const char *displayselectcmd[] = {"sh", "displayselect", NULL};
 static const char *raisevolumecmd[] = {"amixer", "set", "Master", "5%+", NULL};
 static const char *lowervolumecmd[] = {"amixer", "set", "Master", "5%-", NULL};
@@ -77,7 +77,7 @@ static Key keys[] = {
 	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = pcmanfmcmd } },
-	{ MODKEY,                       XK_Print,      spawn,          {.v = printscreencmd } },
+	{ 0,                       XK_Print,      spawn,          SHCMD("maim ~/screenshots/pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 	{ MODKEY,                       XK_F3,      spawn,          {.v = displayselectcmd } },
 	{ MODKEY,                       XK_a,      spawn,          {.v = pavucontrolcmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = ncmpcppcmd } },
