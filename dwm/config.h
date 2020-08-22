@@ -72,9 +72,9 @@ static const char *pcmanfmcmd[] = {"pcmanfm", NULL};
 static const char *ncmpcppcmd[] = {"termite", "-e", "ncmpcpp", NULL};
 // static const char *printscreencmd[] = {"scrot" "~/screenshots/%Y-%m-%d-%T-screenshot.png", NULL};
 static const char *displayselectcmd[] = {"sh", "displayselect", NULL};
-static const char *raisevolumecmd[] = {"amixer", "set", "Master", "5%+;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
-static const char *lowervolumecmd[] = {"amixer", "set", "Master", "5%-;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
-static const char *mutevolumecmd[] = {"amixer", "-q", "set", "Master", "toggle;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
+//static const char *raisevolumecmd[] = {"amixer", "set", "Master", "5%+;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
+//static const char *lowervolumecmd[] = {"amixer", "set", "Master", "5%-;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
+//static const char *mutevolumecmd[] = {"amixer", "-q", "set", "Master", "toggle;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
@@ -84,9 +84,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F3,      spawn,          {.v = displayselectcmd } },
 	{ MODKEY,                       XK_a,      spawn,          {.v = pavucontrolcmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = ncmpcppcmd } },
-	{ 0,		 XF86XK_AudioRaiseVolume,	 spawn,	 {.v = raisevolumecmd } },
-	{ 0,		 XF86XK_AudioLowerVolume,	 spawn,	 {.v = lowervolumecmd } },
-	{ 0,		 XF86XK_AudioMute,	 	spawn,	 {.v = mutevolumecmd } },
+	{ 0,		 XF86XK_AudioRaiseVolume,	 spawn,	 SHCMD("amixer set Master 5%+; pkill -RTMIN+10 dwmblocks") },
+	{ 0,		 XF86XK_AudioLowerVolume,	 spawn,	 SHCMD("amixer set Master 5%-; pkill -RTMIN+10 dwmblocks") },
+	{ 0,		 XF86XK_AudioMute,	 	spawn,	 SHCMD("amixer -q set Master toggle; pkill -RTMIN+10 dwmblocks") },
 	{ 0, 		XF86XK_TouchpadToggle,		spawn,		SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
 	{ 0, 		XF86XK_TouchpadOff,		spawn,		SHCMD("synclient TouchpadOff=1") },
 	{ 0, 		XF86XK_TouchpadOn,		spawn,		SHCMD("synclient TouchpadOff=0") },
