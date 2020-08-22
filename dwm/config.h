@@ -72,9 +72,9 @@ static const char *pcmanfmcmd[] = {"pcmanfm", NULL};
 static const char *ncmpcppcmd[] = {"termite", "-e", "ncmpcpp", NULL};
 // static const char *printscreencmd[] = {"scrot" "~/screenshots/%Y-%m-%d-%T-screenshot.png", NULL};
 static const char *displayselectcmd[] = {"sh", "displayselect", NULL};
-static const char *raisevolumecmd[] = {"amixer", "set", "Master", "5%+", NULL};
-static const char *lowervolumecmd[] = {"amixer", "set", "Master", "5%-", NULL};
-static const char *mutevolumecmd[] = {"amixer", "-q", "set", "Master", "toggle", NULL};
+static const char *raisevolumecmd[] = {"amixer", "set", "Master", "5%+;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
+static const char *lowervolumecmd[] = {"amixer", "set", "Master", "5%-;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
+static const char *mutevolumecmd[] = {"amixer", "-q", "set", "Master", "toggle;", "pkill", "-RTMIN+10", "dwmblocks", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
