@@ -84,6 +84,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = pcmanfmcmd } },
 	{ 0,                       XK_Print,      spawn,          SHCMD("maim ~/screenshots/pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+    { ShiftMask,			XK_Print,	spawn,		SHCMD("maimpick") },
 	{ MODKEY,                       XK_F3,      spawn,          {.v = displayselectcmd } },
 	{ MODKEY,                       XK_a,      spawn,          {.v = pavucontrolcmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = ncmpcppcmd } },
